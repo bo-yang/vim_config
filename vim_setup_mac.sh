@@ -51,6 +51,10 @@ git clone https://github.com/tpope/vim-fugitive.git $vimbundle/vim-fugitive
 vim -u NONE -c "helptags vim-fugitive/doc" -c q
 
 # C++11 Syntax
+git clone https://github.com/octol/vim-cpp-enhanced-highlight.git /tmp/vim-cpp-enhanced-highlight
+mkdir -p ~/.vim/after/syntax/
+mv /tmp/vim-cpp-enhanced-highlight/after/syntax/cpp.vim ~/.vim/after/syntax/cpp.vim
+rm -rf /tmp/vim-cpp-enhanced-highlight
 
 # Go Syntax
-
+git clone https://github.com/fatih/vim-go.git $vimbundle/vim-go
