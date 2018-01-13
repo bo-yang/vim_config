@@ -26,9 +26,11 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # Install Exuberant Ctags
 brew install ctags
-if [ -e /usr/local/bin/ctags ]; then
+if [ ! -e /usr/local/bin/ctags ]; then
   echo "Error: failed to install Exuberant Ctags"
 fi
+# Set the path of ctags, which is used in vimrc
+echo "export CTAGS_BIN=/usr/local/bin/ctags" >> $bashrc
 
 vimbundle=$HOME/.vim/bundle
 # Install Tagbar
@@ -47,4 +49,8 @@ git clone https://github.com/ervandew/supertab.git $vimbundle/supertab
 # Install Fugitive
 git clone https://github.com/tpope/vim-fugitive.git $vimbundle/vim-fugitive
 vim -u NONE -c "helptags vim-fugitive/doc" -c q
+
+# C++11 Syntax
+
+# Go Syntax
 
