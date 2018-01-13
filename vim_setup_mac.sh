@@ -32,8 +32,12 @@ if `file_not_contains "alias gvimdiff" $bashrc`; then
   echo "alias gvimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -g'" >> $bashrc
 fi
 
-# Download .vimrc
-#TODO
+# Update .vimrc
+if [ -e ./vimrc ]; then
+  cp ./vimrc ~/.vimrc
+else
+  curl -LSso ~/.vimrc https://github.com/bo-yang/vim_config/blob/master/vimrc
+fi
 
 # Install Pathogen, link https://github.com/tpope/vim-pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
