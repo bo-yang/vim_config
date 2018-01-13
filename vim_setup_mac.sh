@@ -34,8 +34,17 @@ vimbundle=$HOME/.vim/bundle
 # Install Tagbar
 git clone https://github.com/majutsushi/tagbar.git $vimbundle/tagbar
 
-# Install NERDTree
+# Install NERDTree & NERDTreeTabs
 git clone https://github.com/scrooloose/nerdtree.git $vimbundle/nerdtree
+git clone https://github.com/jistr/vim-nerdtree-tabs.git $vimbundle/vim-nerdtree-tabs
 
 # Install SuperTab
 git clone https://github.com/ervandew/supertab.git $vimbundle/supertab
+
+# Install CtrlP & Command-T
+# TODO: very slow, ignore it for now.
+
+# Install Fugitive
+git clone https://github.com/tpope/vim-fugitive.git $vimbundle/vim-fugitive
+vim -u NONE -c "helptags vim-fugitive/doc" -c q
+
