@@ -180,9 +180,9 @@ nmap tb :TagbarToggle<CR>
 " Function: Open tag under cursor in new tab
 " Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
 "--------------------
-"map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <C-]> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-"map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 let g:tagbar_width=26
 "--------------------
 " Function: Remap keys to make it more similar to firefox tab functionality
