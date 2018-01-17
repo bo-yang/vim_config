@@ -70,6 +70,7 @@ if [[ "$Platform" == 'Darwin' ]]; then
   if [ ! -d /Applications/MacVim.app/Contents/MacOS/ ]; then
     echo "Cannot find MacVim on this computer. Skip setting mvim aliases."
     echo "Please download & install MacVim first, link https://github.com/macvim-dev/macvim/releases"
+    exit 1
   fi
 
   # Add alias
