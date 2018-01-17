@@ -4,14 +4,17 @@
 # Automatically install/setup MacVim and Vim plugins
 #
 
-Platform=`uname`
-
 file_not_contains() {
   keyword=$1
   file=$2
   lines=`cat $file | grep -w "$keyword" | wc -l`
   [ $lines -le 0 ]
 }
+
+Platform=`uname`
+bashrc=$HOME/.bashrc
+vimbundle=$HOME/.vim/bundle
+vimautoload=$HOME/.vim/autoload
 
 # Update .vimrc
 if [ -e ./vimrc ]; then
@@ -21,8 +24,8 @@ else
 fi
 
 # Install Pathogen, link https://github.com/tpope/vim-pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+mkdir -p $vimautoload $vimbundle && \
+curl -LSso $vimautoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # Config ctags for macOS
 if [[ "$Platform" == 'Darwin' ]]; then
@@ -37,7 +40,6 @@ if [[ "$Platform" == 'Darwin' ]]; then
   fi
 fi
 
-vimbundle=$HOME/.vim/bundle
 # Install Tagbar
 git clone https://github.com/majutsushi/tagbar.git $vimbundle/tagbar
 
@@ -64,8 +66,7 @@ rm -rf /tmp/vim-cpp-enhanced-highlight
 # Go Syntax
 git clone https://github.com/fatih/vim-go.git $vimbundle/vim-go
 
-
-# Install MacVim - manual work
+# setup MacVim
 if [[ "$Platform" == 'Darwin' ]]; then
   if [ ! -d /Applications/MacVim.app/Contents/MacOS/ ]; then
     echo "Cannot find MacVim on this computer. Skip setting mvim aliases."
@@ -74,7 +75,6 @@ if [[ "$Platform" == 'Darwin' ]]; then
   fi
 
   # Add alias
-  bashrc=$HOME/.bashrc
   if `file_not_contains "alias mvim" $bashrc`; then
     echo "alias mvim='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
   fi
