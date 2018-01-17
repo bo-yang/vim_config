@@ -71,20 +71,19 @@ if [[ "$Platform" == 'Darwin' ]]; then
     echo "Cannot find MacVim on this computer. Skip setting mvim aliases."
     echo "Please download & install MacVim first, link https://github.com/macvim-dev/macvim/releases"
   fi
-else
-  # check for gnome-vim
-fi
-# Add alias
-bashrc=$HOME/.bashrc
-if `file_not_contains "alias mvim" $bashrc`; then
-  echo "alias mvim='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
-fi
-if `file_not_contains "alias mvimdiff" $bashrc`; then
-  echo "alias mvimdiff='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
-fi
-if `file_not_contains "alias gvim" $bashrc`; then
-  echo "alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'" >> $bashrc
-fi
-if `file_not_contains "alias gvimdiff" $bashrc`; then
-  echo "alias gvimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -g'" >> $bashrc
+
+  # Add alias
+  bashrc=$HOME/.bashrc
+  if `file_not_contains "alias mvim" $bashrc`; then
+    echo "alias mvim='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
+  fi
+  if `file_not_contains "alias mvimdiff" $bashrc`; then
+    echo "alias mvimdiff='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
+  fi
+  if `file_not_contains "alias gvim" $bashrc`; then
+    echo "alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'" >> $bashrc
+  fi
+  if `file_not_contains "alias gvimdiff" $bashrc`; then
+    echo "alias gvimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -g'" >> $bashrc
+  fi
 fi
