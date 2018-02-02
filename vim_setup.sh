@@ -66,6 +66,9 @@ rm -rf /tmp/vim-cpp-enhanced-highlight
 # Go Syntax
 git clone https://github.com/fatih/vim-go.git $vimbundle/vim-go
 
+# Click Syntax
+git clone https://github.com/mtahmed/click.vim.git $vimbundle/vim-click
+
 # setup MacVim
 if [[ "$Platform" == 'Darwin' ]]; then
   if [ ! -d /Applications/MacVim.app/Contents/MacOS/ ]; then
