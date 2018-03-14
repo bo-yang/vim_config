@@ -82,7 +82,7 @@ if [[ "$Platform" == 'Darwin' ]]; then
     echo "alias mvim='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
   fi
   if `file_not_contains "alias mvimdiff" $bashrc`; then
-    echo "alias mvimdiff='/Applications/MacVim.app/Contents/MacOS/MacVim'" >> $bashrc
+    echo "alias mvimdiff='/Applications/MacVim.app/Contents/MacOS/MacVim -d'" >> $bashrc
   fi
   if `file_not_contains "alias gvim" $bashrc`; then
     echo "alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'" >> $bashrc
