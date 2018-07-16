@@ -39,6 +39,8 @@ if [[ "$Platform" == 'Darwin' ]]; then
     echo "export CTAGS_BIN=/usr/local/bin/ctags" >> $bashrc
   fi
 fi
+# cscope key mapping
+cp cscope_maps.vim ~/.vim/plugin/
 
 # Install Tagbar
 git clone https://github.com/majutsushi/tagbar.git $vimbundle/tagbar
