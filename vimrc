@@ -194,7 +194,11 @@ let g:tagbar_width=26
 
 " Load ctags
 if filereadable($CTAGS_TAG)
-	set tags=$CTAGS_TAG
+    set tags=$CTAGS_TAG
+elseif filereadable('./tags')
+    set tags=tags
+elseif filereadable('./.git/tags')
+    set tags=.git/tags
 endif
 
 "set guifont=DejaVu\ Sans\ Mono\ 9
