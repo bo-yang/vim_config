@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #
 # Automatically install/setup MacVim and Vim plugins
@@ -40,6 +40,7 @@ if [[ "$Platform" == 'Darwin' ]]; then
   fi
 fi
 # cscope key mapping
+mkdir -p ~/.vim/plugin/
 cp cscope_maps.vim ~/.vim/plugin/
 
 # Install Tagbar
