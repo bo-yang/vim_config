@@ -27,7 +27,7 @@ fi
 mkdir -p $vimautoload $vimbundle && \
 curl -LSso $vimautoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-# Config ctags for macOS
+# Config ctags
 if [[ "$Platform" == 'Darwin' ]]; then
   # Install Exuberant Ctags
   brew install ctags
@@ -38,6 +38,19 @@ if [[ "$Platform" == 'Darwin' ]]; then
   if `file_not_contains "export CTAGS_BIN" $bashrc`; then
     echo "export CTAGS_BIN=/usr/local/bin/ctags" >> $bashrc
   fi
+else
+    # Linux ctags should be Exuberant Ctags by default
+    local ctag=$(which ctags)
+    if [ "$ctag" == "" ]; then
+        local installer=$(which yum)
+        if [ "$installer" == "" ]; then
+            installer=$(which apt-get)
+        fi
+        echo ""
+        echo "ctags not found, installing it using $installer ...."
+        sudo $installer install ctags
+        echo ""
+    fi
 fi
 # cscope key mapping
 mkdir -p ~/.vim/plugin/
