@@ -16,6 +16,9 @@ bashrc=$HOME/.bashrc
 vimbundle=$HOME/.vim/bundle
 vimautoload=$HOME/.vim/autoload
 
+#TODO: Add Vundle support
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 # Update .vimrc
 if [ -e ./vimrc ]; then
   cp ./vimrc ~/.vimrc
