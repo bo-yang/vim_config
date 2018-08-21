@@ -88,7 +88,7 @@ if has("cscope")
     " go back to where you were before the search.  
     "
 
-	nmap <C-[> :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-[> :cs find s <C-R>=expand("<cword>")<CR><CR>
     nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
